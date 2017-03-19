@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Event Spot</title>
+    <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+    <link rel="SHORTCUT ICON" href="assets/images/favicon.ico">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/ico">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Expletus+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBwB_IkbjXVkJ9U11uwI3F6pA1TkjUnnHI",
+        authDomain: "eventspot-a7503.firebaseapp.com",
+        databaseURL: "https://eventspot-a7503.firebaseio.com",
+        storageBucket: "eventspot-a7503.appspot.com",
+      };
+      firebase.initializeApp(config);
+    
+    </script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+    <nav>
+        <ul class="nav nav-pills">
+            <li role="presentation"><a href="#venues" class="pill-color top-margin">Venues</a></li>
+            <li role="presentation"><a href="#decorations" class="pill-color top-margin">Decorations</a></li>
+            <li role="presentation"><a href="#" class="pill-color initials"></a></li>
+            <li role="presentation"><a href="#outfitsNav" class="pill-color top-margin">Outfits</a></li>
+            <li role="presentation"><a href="#catering" class="pill-color top-margin">Social Media</a></li>
+        </ul>
+    </nav>
+    
+    <div class="Jumbotron">
+        <div class="container">
+            <h1>.</h1>
+            <p>.</p>
+            <p id="auth"></p>
+        </div>
+        <a name="venues"></a>
+    </div>
+
+    <div class="container-fluid black-bkgd">
+        
+        <div class="row row-centered">
+            <div class="col-md-12">
+                <div class="row row-centered">
+                    <div class="col-md-12">
+                        <p id="allowPopUps"></p>
+                        <h2>Venues</h2>
+                        <div id="Venue">
+                            <form>
+                                <p>Please enter the five digit Zip Code of where you would like to hold the event.</p><br>
+                                <div>
+                                    <input  class="rounded" type="text" placeholder="00000" id="zip"><br>
+                                </div><br>
+                                <p id="errorZip"></p><br>
+                                
+                                <button id="searchZip" class="button-white" type="submit">Search ZIP</button>
+                            </form>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row row-centered">
+                    <div class="col-md-8 col-md-offset-2" id="map">
+                        <img src="assets/images/location.png" class="img-circle" title="map" alt="map">
+                        <!-- this is an empty div -->
+                    </div>
+                </div>
+                <div class="row row-centered">
+                    <!-- this is an empty div -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid white-bkgd">
+        <a name="decorations"></a>
+        <div class="row row-centered">
+            <div class="col-md-8 col-md-offset-2">
+                <h2>Decorations</h2>
+                <div id="Decorations">
+                    <form>
+                        <p>Please enter the theme for your event.</p><br>
+                        <div>
+                            <input class="rounded" type="text" placeholder="masquerade" id="theme"><br>
+                        </div><br>
+                        <p id="errorTheme"></p><br>
+                        
+                        <input id="searchTheme" class="button-white" type="submit" value="Search Theme">
+                    </form>
+
+                    <div id="ebayDecorationResults">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-centered">
+            <div class="col-md-2 col-md-offset-2 col-sm-12">
+                <!-- This is an empty div -->
+            </div>
+        </div>
+
+        <div class="row row-centered">
+            <div class="col-md-12">
+                <!-- this is an empty div -->
+            </div>
+        </div>
+
+        <div class="row row-centered">
+            <div class="col-md-8 col-md-offset-2">
+                <!-- this is an empty div -->
+            </div>
+        </div>
+
+        <div class="row row-centered">
+            <div class="col-md-8 col-md-offset-2">
+                <!-- this is an empty div -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container black-bkgd">
+        <a name="outfitsNav"></a>
+        <div class="row row-centered">
+            <div class="col-md-12">
+                <h2>Outfits</h2>
+                <div id="outfits">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid white-bkgd">
+        <a name="catering"></a>
+        
+    
+    </div>
+
+    <div>
+
+        <div class="socIcon">
+            <a href="#" target="_blank"><img src="assets/images/facebook.png" class="social img-circle" title="Facebook" alt="Facebook"></a>
+        </div>
+        <div class="socIcon">
+            <a href="#" target="_blank"><img src="assets/images/instagram.png" class="social img-circle" title="instagram" alt="instagram"></a>
+        </div>
+        <div class="socIcon">
+            <a href="#" target="_blank"><img src="assets/images/twitter.png" class="social img-circle" title="twitter" alt="twitter"></a>
+        </div>
+         
+    </div>
+
+    <footer>
+        <img id="teamLogo" src="assets/images/3rn.png"><br>
+        <p>&copy; Copyright 2016</p> 
+    </footer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfL_mCPMMw-Yxs3YtuzEtkZDRWY3fLt8g"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+    <script src="assets/javascript/app.js"></script>
+
+</body>
+</html>
